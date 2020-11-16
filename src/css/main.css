@@ -1,0 +1,259 @@
+
+body {
+    background-color: #FFFFFF;
+    margin: 0px;
+    background: url('../img/bg.jpg');
+    background-size: 100% 110%; 
+    overflow: hidden;
+}
+
+#foreground{
+  background-color: black;
+  width: 100%;
+  height: 1000px;
+  z-index: 9;
+}
+
+/*Bouton pause*/
+#pause{
+  background: url('../img/sound-on.png');
+  position: absolute;
+  top: 5px;
+  right: 75px;
+  width: 70px;
+  height: 70px;
+  opacity: 0px;
+  display: none;
+  transform: scale(0.7,0.7);
+  -ms-transform: scale(0.7,0.7); /* IE 9 */
+  -webkit-transform: scale(0.7,0.7); /* Safari and Chrome */
+}
+
+/*Bouton reload*/
+#reload{
+  background: url('../img/reload.png');
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 70px;
+  height: 70px;
+  opacity: 0px;
+  display: none;
+  transform: scale(0.5,0.5);
+  -ms-transform: scale(0.5,0.5); /* IE 9 */
+  -webkit-transform: scale(0.5,0.5); /* Safari and Chrome */
+}
+
+#snow-floor{
+  position: absolute;
+  bottom: 0%;
+  left: 0%;
+  background: url('../img/snow-floor.png');
+  /*width: 1280px;*/
+  width: 100%;
+  height: 150px;
+}
+
+
+.sapin-container{
+  position: absolute;
+  bottom: 0px;
+  left: 35%;
+  width: 510px;
+  height: 523px;
+  opacity: 1;
+}
+
+  #sapin {
+    background: url('../img/sapin.png');
+    position: relative;
+    bottom: -50px;
+    left: 35%;
+    width: 510px;
+    height: 523px;
+    opacity: 1;
+    z-index: 0;
+  }
+
+  #star {
+    background: url('../img/white-blue-star.png');
+    position: relative;
+    bottom: 525px;
+    left: 365px;
+    width: 150px;
+    height: 150px;
+    opacity: 1;
+    z-index: 10;
+  }
+
+  /*Lumieres de nowell dans le sapin*/
+
+  /*Ce qui s'applique a tous les lumieres*/
+  [class^="glow"],
+  [class*=" glow"] {    
+    opacity: 0;
+  }
+
+    #glow-1 {
+      background: url('../img/glow-big.png');
+      position: absolute;
+      bottom: 125px;
+      left: 365px;
+      width: 150px;
+      height: 150px;
+      z-index: 11;
+    }
+
+    #glow-2 {
+      background: url('../img/glow-medium.png');
+      position: absolute;
+      bottom:55px;
+      left: 455px;
+      width: 150px;
+      height: 150px;
+      z-index: 12;
+    }
+
+    #glow-3 {
+      background: url('../img/glow-small.png');
+      position: absolute;
+      bottom:230px;
+      left: 340px;
+      width: 150px;
+      height: 150px;
+      z-index: 13;
+    }
+
+    #glow-4 {
+      background: url('../img/glow-tiny.png');
+      position: absolute;
+      bottom:100px;
+      left: 290px;
+      width: 150px;
+      height: 150px;
+      z-index: 14;
+    }
+
+    #glow-5 {
+      background: url('../img/glow.png');
+      position: absolute;
+      bottom:30px;
+      left: 320px;
+      width: 150px;
+      height: 150px;
+      z-index: 15;
+    }
+
+    #glow-6 {
+      background: url('../img/glow-small.png');
+      position: absolute;
+      bottom:200px;
+      left: 400px;
+      width: 150px;
+      height: 150px;
+      z-index: 16;
+    }
+
+  /*Ce qui s'applique a tous les cadeaux*/
+  [class^="cadeau-"],
+  [class*=" cadeau-"] {    
+    transform: scale(0.7,0.7);
+    -ms-transform: scale(0.7,0.7); /* IE 9 */
+    -webkit-transform: scale(0.7,0.7); /* Safari and Chrome */
+    opacity: 0;
+    display: none;
+  }
+
+    #cadeau-open {  /* Qui est en fait devenu un adeau en fait */
+        position: absolute;
+        bottom: 2000px;
+        left: 25%;
+        background: url('../img/gift-open.png');
+        width: 211px;
+        height: 208px;
+        z-index: 23;
+    }
+
+    #paperplane {  /* Qui est en fait devenu un adeau en fait */
+        position: absolute;
+        bottom: 2000px;
+        left: 25%;
+        background: url('../img/paperplane.png');
+        width: 211px;
+        height: 208px;
+        z-index: 24;
+        opacity: 0;
+    }   
+
+    #cadeau-top {  /* Qui est en fait devenu un adeau en fait */
+        position: absolute;
+        bottom: 2000px;
+        left: 25%;
+        background: url('../img/gift-top.png');
+        width: 211px;
+        height: 208px;
+        z-index: 25;
+    }    
+
+
+    #cadeau-1 {  /* Qui est en fait devenu un adeau en fait */
+        position: absolute;
+        bottom: 400px;
+        left: 25%;
+        background: url('../img/gift.png');
+        width: 600px;
+        height: 380px;
+        z-index: 20;
+    }
+
+    #cadeau-2 {  /* Qui est en fait devenu un adeau en fait */
+        position: absolute;
+        bottom: 400px;
+        left: 20%;
+        background: url('../img/gift-1.png');
+        width: 270px;
+        height: 207px;
+        z-index: 21;
+    }
+
+    #cadeau-3 {  /* Qui est en fait devenu un adeau en fait */
+        position: absolute;
+        bottom: 300px;
+        left: 90%;
+        background: url('../img/gift-2.png');
+        width: 270px;
+        height: 207px;
+        z-index: 22;
+    }
+
+
+#message {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    background: url('../img/message.png');
+    width: 500px;
+    height: 500px;
+    z-index: 30;
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+}
+
+#message-ie8 {
+  position: absolute;
+  top: 5%;
+  right: 15%;
+  width: 500px;
+  height: 100px;
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+  color: white;
+  font-family: arial, helvetica, sans-serif;
+}
+
+  #message-ie8 a, #message-ie8 a:visited {
+    color: white;
+    font-family: arial, helvetica, sans-serif;
+  }

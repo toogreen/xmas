@@ -1,0 +1,132 @@
+/*Si on est dans un ecran de telephone*/
+@media (max-width: 767px) {
+
+  .sapin-container{
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 510px;
+    height: 523px; 
+    opacity: 1;
+  }
+
+  #sapin {
+    background: url('../img/sapin.png');
+    position: relative;
+    bottom: -120px;
+    left: 5%;
+    width: 510px;
+    height: 523px;
+    opacity: 1;
+    z-index: 0;
+      transform: scale(0.8,0.8);
+      -ms-transform: scale(0.8,0.8); /* IE 9 */
+      -webkit-transform: scale(0.8,0.8); /* Safari and Chrome */
+  }
+
+  #star {
+
+    bottom: 405px;
+    left: 41%;
+   }
+
+    /*Bouton pause*/
+    #pause{
+      top: 5px;
+      right: 5px;
+
+    }
+
+    /*Bouton reload*/
+    #reload{
+      top: 5px;
+      right: 5px;
+      visibility: hidden;
+    }
+
+    /*On rapetisse les 2 boutons*/
+    #pause, #reload{
+      transform: scale(0.5,0.5);
+      -ms-transform: scale(0.5,0.5); /* IE 9 */
+      -webkit-transform: scale(0.5,0.5); /* Safari and Chrome */
+      z-index: 35;
+    }
+
+    #cadeau-open, #paperplane, #cadeau-top  {  /* On les mets tous un peu plus bas */
+        bottom: 1960px;
+    }
+
+    #message-softvoyage {
+        position: absolute;
+        top: -90px;
+        left: -90px;
+        width: 500px;
+        height: 500px;
+          transform: scale(0.6,0.6);
+          -ms-transform: scale(0.6,0.6); /* IE 9 */
+          -webkit-transform: scale(0.6,0.6); /* Safari and Chrome */
+    }
+
+    #glow-1 {
+      background: url('../img/glow-big.png');
+      position: absolute;
+      bottom: 115px;
+      left: 165px;
+      width: 150px;
+      height: 150px;
+      z-index: 11;
+    }
+
+    #glow-2 {
+      background: url('../img/glow-medium.png');
+      position: absolute;
+      bottom:45px;
+      left: 255px;
+      width: 150px;
+      height: 150px;
+      z-index: 12;
+    }
+
+    #glow-3 {
+      background: url('../img/glow-small.png');
+      position: absolute;
+      bottom:170px;
+      left: 210px;
+      width: 150px;
+      height: 150px;
+      z-index: 13;
+    }
+
+    #glow-4 {
+      background: url('../img/glow-tiny.png');
+      position: absolute;
+      bottom:90px;
+      left: 190px;
+      width: 150px;
+      height: 150px;
+      z-index: 14;
+    }
+
+    #glow-5 {
+      background: url('../img/glow.png');
+      position: absolute;
+      bottom:20px;
+      left: 220px;
+      width: 150px;
+      height: 150px;
+      z-index: 15;
+    }
+
+    #glow-6 {
+      background: url('../img/glow-small.png');
+      position: absolute;
+      bottom:130px;
+      left: 200px;
+      width: 150px;
+      height: 150px;
+      z-index: 16;
+    }
+
+
+
+} /*Fin de la partie telephone*/
