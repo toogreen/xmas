@@ -2,7 +2,7 @@
 body {
     background-color: #FFFFFF;
     margin: 0px;
-    background: url('../img/bg.jpg');
+    background: url('.img/bg.jpg');
     background-size: 100% 110%; 
     overflow: hidden;
 }
@@ -16,7 +16,7 @@ body {
 
 /*Bouton pause*/
 #pause{
-  background: url('../img/sound-on.png');
+  background: url('img/sound-on.png');
   position: absolute;
   top: 5px;
   right: 75px;
@@ -200,7 +200,7 @@ body {
         position: absolute;
         bottom: 400px;
         left: 25%;
-        background: url('../img/gift.png');
+        background: url('img/gift.png');
         width: 600px;
         height: 380px;
         z-index: 20;
@@ -210,7 +210,7 @@ body {
         position: absolute;
         bottom: 400px;
         left: 20%;
-        background: url('../img/gift-1.png');
+        background: url('img/gift-1.png');
         width: 270px;
         height: 207px;
         z-index: 21;
@@ -220,7 +220,7 @@ body {
         position: absolute;
         bottom: 300px;
         left: 90%;
-        background: url('../img/gift-2.png');
+        background: url('img/gift-2.png');
         width: 270px;
         height: 207px;
         z-index: 22;

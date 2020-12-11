@@ -2,7 +2,7 @@ import React from 'react';
 import "./css/iphone.css";
 import "./css/main.css";
 import $ from "jquery";
-import Flocons from "./Flocons";
+// import Flocons from "./Flocons";
 
 function Card() {
     return (
@@ -75,7 +75,7 @@ function Card() {
 
             <MainScript />
 
-            <Flocons />
+            {/* <Flocons /> */}
 
             {/* <!--<![endif]-->            */}
         </div>
