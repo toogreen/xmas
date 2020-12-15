@@ -11,7 +11,7 @@
   }
 
   #sapin {
-    background: url('../img/sapin.png');
+    background: url('https://toogreen.ca/xmas/img/sapin.png');
     position: relative;
     bottom: -120px;
     left: 5%;
@@ -68,7 +68,7 @@
     }
 
     #glow-1 {
-      background: url('../img/glow-big.png');
+      background: url('https://toogreen.ca/xmas/img/glow-big.png');
       position: absolute;
       bottom: 115px;
       left: 165px;
@@ -78,7 +78,7 @@
     }
 
     #glow-2 {
-      background: url('../img/glow-medium.png');
+      background: url('https://toogreen.ca/xmas/img/glow-medium.png');
       position: absolute;
       bottom:45px;
       left: 255px;
@@ -88,7 +88,7 @@
     }
 
     #glow-3 {
-      background: url('../img/glow-small.png');
+      background: url('https://toogreen.ca/xmas/img/glow-small.png');
       position: absolute;
       bottom:170px;
       left: 210px;
@@ -98,7 +98,7 @@
     }
 
     #glow-4 {
-      background: url('../img/glow-tiny.png');
+      background: url('https://toogreen.ca/xmas/img/glow-tiny.png');
       position: absolute;
       bottom:90px;
       left: 190px;
@@ -108,7 +108,7 @@
     }
 
     #glow-5 {
-      background: url('../img/glow.png');
+      background: url('https://toogreen.ca/xmas/img/glow.png');
       position: absolute;
       bottom:20px;
       left: 220px;
@@ -118,7 +118,7 @@
     }
 
     #glow-6 {
-      background: url('../img/glow-small.png');
+      background: url('https://toogreen.ca/xmas/img/glow-small.png');
       position: absolute;
       bottom:130px;
       left: 200px;
