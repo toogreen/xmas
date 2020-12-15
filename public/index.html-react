@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>React App</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+
+            <!--[if lt IE 9]> */}
+                <canvas id="message-ie8" width="100%" height="100%" style="margin-top: 0px;">
+                    <div style="color: white;">
+                    Your browser does not appear to support HTML5.  Try upgrading your browser to the latest version.  <a style="color: white;" href="http://www.whatbrowser.org">What is a browser?</a>
+                    <br/>
+                    Votre fureteur ne supporte pas le HTML5. Mettez-le à jour vers la dernière version.  <a style="color: white;" href="http://www.whatbrowser.org">Qu'est-ce qu'un fureteur?</a>
+                    <br/><br/>
+                    <b>Recommended browsers / Fureteurs recommandés:</b><br/>
+                    <a style="color: white;" href="http://www.mozilla.com/firefox/">Mozilla Firefox</a><br/>
+                    <a style="color: white;" href="http://www.google.com/chrome/">Google Chrome</a><br/>
+                    <a style="color: white;" href="http://www.apple.com/safari/download/">Apple Safari</a><br/>
+                    <a style="color: white;" href="http://www.google.com/chromeframe">Google Chrome Frame for Internet Explorer</a><br/>
+                    </div>
+                </canvas>                
+            <![endif]--> 
+
+
+
+    <div id="root"></div>
+
+              <!--[if !IE 8 ]> 
+
+                <!-- Script Divers pour les flocons animés --> 
+                <script type="text/javascript" src="js/ThreeCanvas.js"></script>
+                <script type="text/javascript" src="js/Snow.js"></script>
+                
+
+                <!-- jQuery normal --> 
+                <script type="text/javascript" src="js/jquery.min.js"></script>
+                
+                <!-- Ajouté ça pour meilleures animations -->
+                <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+
+                <script>
+                  jQuery(document).ready(function () {
+
+                    // Disable scrolling
+                    $("body").css("overflow", "hidden");
+
+                    // loader la musique d'avance
+                    var audioElement1 = document.createElement('audio');
+
+                    audioElement1.setAttribute('src', 'sound/jazzy1.mp3'); // Fonctionne juste sous webkit browsers
+
+                    if ($.browser.mozilla || $.browser.opera) {
+                      audioElement1.setAttribute('src', 'sound/jazzy1.theora.ogv'); // Pour que ça joue partout
+                    }
+
+                    // Vu que la musique joue pas encore on definie une variable qui servira pour notre bouton play/pause plus tard
+                    var audioplaying = false;
+
+
+                    // D'abord on fait apparaitre etoile qui "glow" pour attirer le clic
+                    glow1();
+
+                    // Si on clique sur l'etoile
+                    $("#star").click(function () {
+
+                      // On fait apparaitre les lumieres dans l'arbre qui clignotent
+                      glow2();
+
+                      // Empecher qu'on puisse cliquer a nouveau dessus
+                      $(this).unbind('click');
+
+
+                      // Pars la musique!
+                      audioElement1.play();
+
+                      // On averti notre variable qu'on joue maintenant
+                      audioplaying = true;
+
+                      // On affiche les boutons pause et reload
+                      $("#pause").css({ 'display': 'block', 'opacity': '1' })
+                      $("#reload").css({ 'display': 'block', 'opacity': '1' })
+
+
+                      // On joue la première séquence (cadeau 1 apparait)
+                      animation1();
+
+                    });
+
+                    // If we click on cadeau1
+                    $("#cadeau-open, #cadeau-top").click(function () {
+
+                      // Empecher qu'on puisse cliquer a nouveau dessus
+                      $(this).unbind('click');
+
+                      // Joue animation pour ouvrir cadeau
+                      animation2();
+
+                      // If we click on paper plane (ou sur le cadeau)
+                      // $("#paperplane, #cadeau-open, #cadeau-top").click(function(){
+
+                      // 	// Empecher qu'on puisse cliquer a nouveau dessus
+                      // 	$(this).unbind('click');
+
+                      // 	// Joue animation pour fermer cadeau
+                      // 	animation3();
+
+                      // });
+
+                    });
+
+                    // If we click on message softvoyage
+                    $("#message-softvoyage").click(function () {
+
+                      // STOP la musique!
+                      audioElement1.pause();
+                      audioplaying = false;
+                      $("#pause").css('background', 'url(img/sound-off.png)');
+
+                      // On joue la dernière séquence (Message de bons voeux apparait et l'étoile sur le sapin)
+                      animation4();
+
+                    });
+
+                    // If we click sur bouton pause musique
+                    $("#pause").click(function () {
+
+                      if (audioplaying == true) {
+
+                        // STOP la musique!
+                        audioElement1.pause();
+                        audioplaying = false;
+                        $("#pause").css('background', 'url(img/sound-off.png)');
+
+                      } else {
+                        // PLAY la musique!
+                        audioElement1.play();
+                        audioplaying = true;
+                        $("#pause").css('background', 'url(img/sound-on.png)');
+                      }
+                    });
+
+
+                    // Pour les mouse-over sur le bouton reload
+                    $("#reload").mouseenter(function () {
+                      $(this).css('background', 'url(img/reload-hover.png)');
+                    });
+
+                    $("#reload").mouseleave(function () {
+                      $(this).css('background', 'url(img/reload.png)');
+                    });
+
+                    // Si on clique sur le bouton reload on reload la page
+                    $("#reload").click(function () {
+                      location.reload();
+                    });
+
+
+
+                  }); // fin du jQuery
+
+
+                  // Fonctions principales
+
+                  function glow1() { // Faire clignoter l'etoile
+                    $("#star").animate({ opacity: "0" }, 1000).animate({ opacity: "1" }, 1000);
+                    setTimeout("glow1()", 1);
+                  }
+
+                  function glow2() { // Faire clignoter les lumieres dans le sapin
+                    $("#glow-1").animate({ opacity: "0" }, 800).animate({ opacity: "1" }, 800);
+                    $("#glow-2").animate({ opacity: "0" }, 750).animate({ opacity: "1" }, 750);
+                    $("#glow-3").animate({ opacity: "0" }, 700).animate({ opacity: "1" }, 700);
+                    $("#glow-4").animate({ opacity: "0" }, 650).animate({ opacity: "1" }, 650);
+                    $("#glow-5").animate({ opacity: "0" }, 600).animate({ opacity: "1" }, 600);
+                    $("#glow-6").animate({ opacity: "0" }, 550).animate({ opacity: "1" }, 550);
+                    setTimeout("glow2()", 1000);
+                  }
+
+                  function animation1() {
+
+                    // Show cadeau 1
+                    $("#cadeau-open, #cadeau-top, #paperplane").css({ 'display': 'block', 'opacity': '1' }).animate({ bottom: "-=2020px" }, 1000);
+
+                  }
+
+                  function animation2() {
+
+                    // Cadeau qui s'ouvre
+                    $("#cadeau-top").css({ 'display': 'block', 'opacity': '1' }).animate({ bottom: "+=100px" }, 1000);
+
+                    // L'avion apparait en fade in
+                    $("#paperplane").css({ 'display': 'block', 'opacity': '0' }).fadeTo(1000, 1, function () { animation3() });
+
+                  }
+
+                  function animation3() {
+
+                    // Cadeau se referme
+                    $("#cadeau-top").css({ 'display': 'block', 'opacity': '1' }).animate({ bottom: "-=100px" }, 1000).unbind('click');
+
+                    // L'avion disparait en fade out et en se deplacant en diagonale vers le top-left
+                    $("#paperplane").css({ 'display': 'block', 'opacity': '1' }).animate({ left: "-=200", bottom: "+=200px" }, 1000);
+                    //$("#paperplane").animate({bottom:"+=50px"},400);
+                    $("#paperplane").fadeTo(400, 0, function () { animation4() });
+
+
+                  }
+
+                  function animation4() {
+
+                    // Faire apparaitre message de bons souhaits
+                    $("#message-softvoyage").css({ 'visibility': 'visible', 'display': 'block', 'opacity': '0' }).fadeTo(500, 1, function () { });
+
+                  }
+
+
+
+                </script>
+                
+                <!-- Le script ci-bas est ce qui fait les flocons -->
+                <script>
+
+
+
+                  var SCREEN_WIDTH = window.innerWidth;
+                  var SCREEN_HEIGHT = window.innerHeight;
+
+                  var container;
+
+                  var particle;
+
+                  var camera;
+                  var scene;
+                  var renderer;
+
+                  var mouseX = 0;
+                  var mouseY = 0;
+
+                  var windowHalfX = window.innerWidth / 2;
+                  var windowHalfY = window.innerHeight / 2;
+
+                  var particles = [];
+                  var particleImage = new Image();//THREE.ImageUtils.loadTexture( "img/ParticleSmoke.png" );
+                  particleImage.src = 'img/ParticleSmoke.png';
+
+
+
+                  function init() {
+
+                    container = document.createElement('div');
+                    document.body.appendChild(container);
+
+                    camera = new THREE.PerspectiveCamera(75, SCREEN_WIDTH / SCREEN_HEIGHT, 1, 10000);
+                    camera.position.z = 1000;
+
+                    scene = new THREE.Scene();
+                    scene.add(camera);
+
+                    renderer = new THREE.CanvasRenderer();
+                    renderer.setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
+                    var material = new THREE.ParticleBasicMaterial({ map: new THREE.Texture(particleImage) });
+
+                    for (var i = 0; i < 500; i++) {
+
+                      particle = new Particle3D(material);
+                      particle.position.x = Math.random() * 2000 - 1000;
+                      particle.position.y = Math.random() * 2000 - 1000;
+                      particle.position.z = Math.random() * 2000 - 1000;
+                      particle.scale.x = particle.scale.y = 1;
+                      scene.add(particle);
+
+                      particles.push(particle);
+                    }
+
+                    container.appendChild(renderer.domElement);
+
+
+                    document.addEventListener('mousemove', onDocumentMouseMove, false);
+                    document.addEventListener('touchstart', onDocumentTouchStart, false);
+                    document.addEventListener('touchmove', onDocumentTouchMove, false);
+
+                    setInterval(loop, 1000 / 60);
+
+                  }
+
+                  function onDocumentMouseMove(event) {
+
+                    mouseX = event.clientX - windowHalfX;
+                    mouseY = event.clientY - windowHalfY;
+                  }
+
+                  function onDocumentTouchStart(event) {
+
+                    if (event.touches.length == 1) {
+
+                      // Mis ci-bas en commentaire pour pouvoir cliquer sous iOS                    
+                      //event.preventDefault();
+
+                      mouseX = event.touches[0].pageX - windowHalfX;
+                      mouseY = event.touches[0].pageY - windowHalfY;
+                    }
+                  }
+
+                  function onDocumentTouchMove(event) {
+
+
+                    if (event.touches.length == 1) {
+
+
+                      // Mis ci-bas en commentaire pour pouvoir cliquer sous iOS      
+                      //event.preventDefault();
+
+                      mouseX = event.touches[0].pageX - windowHalfX;
+                      mouseY = event.touches[0].pageY - windowHalfY;
+                    }
+                  }
+
+                  //
+
+                  function loop() {
+
+                    for (var i = 0; i < particles.length; i++) {
+
+                      var particle = particles[i];
+                      particle.updatePhysics();
+
+                      with (particle.position) {
+                        if (y < -1000) y += 2000;
+                        if (x > 1000) x -= 2000;
+                        else if (x < -1000) x += 2000;
+                        if (z > 1000) d = 2000;
+                        else if (z < -1000) z += 2000;
+                      }
+                    }
+
+                    camera.position.x += (mouseX - camera.position.x) * 0.05;
+                    camera.position.y += (- mouseY - camera.position.y) * 0.05;
+                    camera.lookAt(scene.position);
+
+                    renderer.render(scene, camera);
+
+
+                  }
+
+
+                </script>
+            <!--<![endif]-->
+
+          
+  </body>
+</html>
